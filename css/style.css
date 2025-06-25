@@ -1,0 +1,654 @@
+/* ============================================
+   RESET & GLOBAL STYLES
+============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* ============================================
+   PAGE LOAD FADE-IN (For all pages)
+============================================ */
+body {
+  opacity: 0;
+  animation: fadeInPage 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ============================================
+   NAVBAR
+============================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #111;
+  position: relative;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  z-index: 1001;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ccc;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #fff;
+}
+
+/* ============================================
+   HERO SECTION
+============================================ */
+.hero {
+  background: url('../images/hero.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+  letter-spacing: 2px;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.hero-buttons .btn {
+  padding: 0.75rem 2rem;
+  margin: 0.5rem;
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+}
+
+.hero-buttons .btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.hero-buttons .outline {
+  background-color: transparent;
+  color: #fff;
+}
+
+.hero-buttons .outline:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+footer .insta-link {
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  margin-top: 0.5rem;
+  transition: color 0.3s;
+}
+
+footer .insta-link:hover {
+  color: #fff;
+}
+
+/* ============================================
+   PAGE TITLES
+============================================ */
+.page-title {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+/* ============================================
+   GALLERY SECTION
+============================================ */
+.gallery {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-grid a {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.3s;
+  filter: grayscale(100%);
+  box-shadow: 0 0 0 rgba(255,255,255,0);
+  border: 2px solid #222;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.08);
+  filter: grayscale(0%);
+  box-shadow: 0 0 12px rgba(255,255,255,0.3);
+}
+
+/* ============================================
+   ABOUT PAGE
+============================================ */
+/* About Section - Meet the Artist */
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  animation: fadeIn 1s ease-in;
+}
+
+.about-image {
+  flex: 0 0 300px;
+  max-width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.about-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+}
+
+.about-text {
+  flex: 1 1 400px;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.about-text h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+/* Section fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-image {
+    max-width: 80%;
+  }
+}
+
+/* ============================================
+   CONTACT PAGE
+============================================ */
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #111;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #1c1c1c;
+  color: #fff;
+  font-size: 1rem;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  background-color: #222;
+  border-color: #fff;
+}
+
+.contact-form .btn {
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 30px;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form .btn:hover {
+  background-color: #ccc;
+  transform: scale(1.05);
+}
+
+/* ============================================
+   MOBILE NAVIGATION
+============================================ */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #111;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 1rem;
+    border-left: 2px solid #333;
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ============================================
+   MESSAGES
+============================================ */
+.success-message,
+.error-message {
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 600px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.success-message {
+  background-color: #003300;
+  color: #00ff88;
+  border: 1px solid #00ff88;
+}
+
+.error-message {
+  background-color: #330000;
+  color: #ff5555;
+  border: 1px solid #ff5555;
+}
+
+/* Ink Drip Styling */
+.ink-drip-container {
+  position: relative;
+  flex: 0 0 250px;
+  max-width: 250px;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.ink-drip-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+.ink-drip-svg {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.about-image-wrapper {
+  position: relative;
+  width: 250px;
+  height: auto;
+  margin-top: -40px; /* Adjusts placement upward */
+}
+
+.ink-box {
+  position: relative;
+  background-color: #222;
+  border-radius: 10px;
+  overflow: visible;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+.artist-img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  display: block;
+}
+
+.drip-img {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 1rem;
+}
+
+.about-image-wrapper {
+  flex: 0 0 280px;
+  max-width: 280px;
+}
+
+.about-text {
+  flex: 1 1 300px;
+  max-width: 600px;
+  text-align: left;
+  color: #ccc;
+}
+
+.about-text h2 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Ink Box Positioning Still Works */
+.ink-box {
+  position: relative;
+  background-color: #222;
+  border-radius: 10px;
+  overflow: visible;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.artist-img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.drip-img {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Responsive Stacking for Mobile */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+
+/* ====== Video Hero ====== */
+.video-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;  /* Center horizontally */
+  align-items: center;      /* Center vertically */
+  text-align: center;        /* Center text inside */
+  padding: 0 1rem;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.7); /* Dark translucent overlay */
+  z-index: 2;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: #E0B989;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: #E0B989;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero-buttons .btn {
+  background-color: #FF3C38;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.hero-buttons .btn:hover {
+  background-color: #e2322c;
+  transform: translateY(-3px);
+}
+
+.hero-buttons .outline {
+  background: transparent;
+  border: 2px solid #FF3C38;
+  color: #FF3C38;
+}
+
+.hero-buttons .outline:hover {
+  background-color: #FF3C38;
+  color: #fff;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+}

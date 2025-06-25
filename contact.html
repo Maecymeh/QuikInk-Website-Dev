@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me | QuikInk Tattoo</title>
+  <meta name="description" content="Contact QuikInk Tattoo for inquiries or appointments. Send a message and get a quick response.">
+  <meta name="keywords" content="tattoo contact, book appointment, quinkink">
+  <meta name="author" content="QuikInk Tattoo">
+  <meta property="og:title" content="QuikInk Tattoo | Contact">
+  <meta property="og:description" content="Get in touch with QuikInk Tattoo. We’ll reply shortly.">
+  <meta property="og:image" content="https://yourdomain.com/images/logo-hero.png">
+  <meta property="og:url" content="https://yourdomain.com/contact.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/logo.png">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+        <div class="logo">
+          <img src="images/logo.png" alt="QuikInk Tattoo Logo">
+        </div>
+      
+        <button class="menu-toggle" id="menuToggle">&#9776;</button>
+      
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tattoos.html">Sample Tattoos</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+      </nav>
+      
+  </header>
+
+  <main class="contact-form">
+    <h1 class="page-title">Contact Me</h1>
+    <form action="php/contact.php" method="POST" enctype="multipart/form-data">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" rows="5" placeholder="Tell me your idea..." required></textarea>
+
+  <label style="color: #ccc; font-size: 0.9rem; margin-bottom: 0.5rem;">
+    Optional: Attach a sample tattoo image
+  </label>
+  <input type="file" name="tattooImage" accept="image/*">
+  <button type="submit" class="btn">Send Inquiry</button>
+
+    </form>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 QuikInk. All rights reserved.</p>
+    <a href="https://www.instagram.com/quik.ink.tattoo/" target="_blank" class="insta-link">Continue the conversation on Instagram</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
