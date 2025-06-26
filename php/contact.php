@@ -6,6 +6,8 @@ require __DIR__ . '/PHPMailer/src/Exception.php';
 require __DIR__ . '/PHPMailer/src/PHPMailer.php';
 require __DIR__ . '/PHPMailer/src/SMTP.php';
 
+$config = require __DIR__ . '/config.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name    = htmlspecialchars(trim($_POST["name"]));
     $email   = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
@@ -19,15 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'taecykim1027@gmail.com';
-            $mail->Password   = 'vfznbarzqmzwlzzg'; // Gmail App Password
+            $mail->Username   = $config['email'];
+            $mail->Password   = $config['app_password'];
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
-            // Email content to Artist
-            $mail->setFrom('taecykim1027@gmail.com', 'QuikInk Website');
+            
+            $mail->setFrom($config['email'], 'QuikInk Website');
             $mail->addReplyTo($email, $name);
-            $mail->addAddress('taecykim1027@gmail.com'); // Your inbox
+            $mail->addAddress($config['email']);
 
             $mail->Subject = "Tattoo Inquiry from $name";
             $mail->isHTML(true);
@@ -58,12 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $confirmation->isSMTP();
             $confirmation->Host       = 'smtp.gmail.com';
             $confirmation->SMTPAuth   = true;
-            $confirmation->Username   = 'taecykim1027@gmail.com';
-            $confirmation->Password   = 'vfznbarzqmzwlzzg';
+            $confirmation->Username   = $config['email'];
+            $confirmation->Password   = $config['app_password'];
             $confirmation->SMTPSecure = 'tls';
             $confirmation->Port       = 587;
 
-            $confirmation->setFrom('taecykim1027@gmail.com', 'QuikInk Tattoo');
+            $confirmation->setFrom($config['email'], 'QuikInk Tattoo');
             $confirmation->addAddress($email, $name);
             $confirmation->Subject = 'Thank you for your inquiry!';
             $confirmation->isHTML(true);
@@ -91,3 +93,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Invalid input.";
     }
 }
+?>
